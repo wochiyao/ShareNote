@@ -8,11 +8,26 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
-public class RegisterController {
+public class UserController {
     @Autowired
     UserService userService;
-
+    @GetMapping("/login")
+    public String loginPage(){
+        return "login";
+    }
+    @PostMapping("/login")
+    public String login(User user, Model model, HttpSession httpSession){
+        if(userService.queryUser(user)!=null){
+            httpSession.setAttribute("user",user);
+            return "redirect:";
+        }else {
+            model.addAttribute("msg","登录失败");
+            return "login";
+        }
+    }
     @GetMapping("/register")
     public String registerPage(){
         return "register";
@@ -21,7 +36,7 @@ public class RegisterController {
     public String register(User user, Model model){
         if (userService.insertUser(user)==1){
             model.addAttribute("msg","注册成功，请登录");
-            return "redirect:login";
+            return "login";
         }else{
             model.addAttribute("msg","注册失败");
             return "register";

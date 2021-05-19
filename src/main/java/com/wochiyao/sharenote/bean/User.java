@@ -1,8 +1,5 @@
 package com.wochiyao.sharenote.bean;
 
-
-
-
 public class User {
     private String id;
     private String name;

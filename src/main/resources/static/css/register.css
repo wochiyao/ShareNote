@@ -1,0 +1,23 @@
+body{
+    background-color: #f9f9f9;
+}
+.top{
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: lighter;
+}
+.register{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 350px;
+    height: 240px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #c2c2c2;
+    padding-top: 20px;
+}

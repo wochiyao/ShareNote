@@ -3,14 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>注册</title>
+    <link rel="stylesheet" type="text/css" th:href="@{~/css/login.css}" href="../static/css/login.css">
+    <link rel="stylesheet" type="text/css" th:href="@{~/css/register.css}" href="../static/css/register.css">
 </head>
 <body>
-    <form th:action="@{/register}" method="post">
-        <input name="name" type="text" placeholder="用户名"><br>
-        <input name="password" type="password" placeholder="密码"><br>
-        <input type="submit" value="注册">
-    </form>
-    <h3 th:text="${msg}"></h3>
-    <a th:href="@{/login}">登录</a>
+    <div class="top">
+        注册
+    </div>
+    <div class="register">
+        <form th:action="@{/register}" method="post">
+            <label><input name="name" type="text" placeholder="用户名"></label><br>
+            <label><input name="password" type="password" placeholder="密码"></label><br>
+            <input id="submit" type="submit" value="注册">
+        </form>
+        <div class="tip" th:text="${msg}">提示</div>
+    </div>
+    <div class="theOther">
+        已有账号？<a th:href="@{/login}">登录你的账号</a>
+    </div>
 </body>
 </html>
